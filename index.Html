@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Центр дистанционного обучения — Курс</title>
+    <!-- Подключаем внешний файл стилей -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- ЭКРАН АВТОРИЗАЦИИ (ФОРМА ВХОДА) -->
+    <div id="auth-screen" class="auth-wrapper">
+        <div class="auth-box">
+            <div class="auth-logo">🌐 СДО СПТ</div>
+            <h2>Вход в систему</h2>
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="username">Логин (Учетная запись преподавателя / Email)</label>
+                    <input type="text" id="username" placeholder="Введите логин" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Пароль</label>
+                    <input type="password" id="password" placeholder="Введите пароль" required>
+                </div>
+                <div id="auth-error" style="color: #dc3545; font-size: 0.9rem; margin-bottom: 15px; display: none; font-weight: bold;">
+                    Неверный логин или пароль! Попробуйте еще раз.
+                </div>
+                <button type="submit" class="auth-btn">Войти</button>
+            </form>
+            <div class="auth-footer">Вход для преподавателей (демо): <strong>user / 123</strong></div>
+        </div>
+    </div>
+    <!-- Шапка страницы -->
+    <header>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <!-- Кнопка гамбургера для скрытия меню -->
+            <button id="toggle-menu" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">☰</button>
+            <div class="logo">🌐 Центр дистанционного обучения СПТ</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <!-- НОВОЕ: Кнопка возврата для администратора (скрыта по умолчанию) -->
+            <button id="admin-logout-btn" style="display: none; background-color: #dc3545; color: white; border: none; padding: 8px 15px; border-radius: 4px; font-weight: bold; cursor: pointer; transition: background 0.2s;">Выйти из панели</button>
+            <div class="user-menu">Преподаватель: <strong class="user-fullname">Иван Иванов</strong></div>
+        </div>
+    </header>
+    <div class="wrapper">
+        <!-- Боковая панель (Сайдбар) -->
+        <aside id="sidebar">
+            <div class="nav-group">
+                <h3>Навигация</h3>
+                <ul class="nav-links">
+                    <li><a href="#" id="nav-dashboard" class="nav-item">🏠 Личный кабинет</a></li>
+                </ul>
+            </div>
+                <div class="nav-group">
+                <h3>Дисциплины</h3>
+                <ul class="nav-links">
+                    <li><a href="#" id="nav-discipline-1" class="nav-item active" data-discipline="1">📖 Дисциплина 1. Организационно-правовое обеспечение ДО</a></li>
+                    <li><a href="#" id="nav-discipline-2" class="nav-item locked-nav" data-discipline="2">📖 Дисциплина 2. Организация преподавания по ДОП 🔒</a></li>
+                    <li><a href="#" id="nav-discipline-3" class="nav-item locked-nav" data-discipline="3">📖 Дисциплина 3. Методика организации досуговой деятельности 🔒</a></li>
+                    <li><a href="#" id="nav-discipline-4" class="nav-item locked-nav" data-discipline="4">📖 Дисциплина 4. Психолого-педагогические основы взаимодействия... 🔒</a></li>
+                    <li><a href="#" id="nav-discipline-5" class="nav-item locked-nav" data-discipline="5">📖 Дисциплина 5. Программно-методическое обеспечение дополнительного образования 🔒</a></li>
+                    <li><a href="#" id="nav-discipline-6" class="nav-item locked-nav" data-discipline="6">📖 Дисциплина 6. Педагогический контроль и оценивание в дополнительном образовании 🔒</a></li>
+                    <li><a href="#" id="nav-discipline-7" class="nav-item locked-nav" data-discipline="7">📖 Дисциплина 7. Педагогические технологии на основе деятельностного подхода в дополнительном образовании детей 🔒</a></li>
+                </ul>
+            </div>
+        </aside>
+        <!-- Начало основной области контента -->
+                <!-- Начало основной области контента -->
+        <main id="main-content">
+            
+            <!-- МАТЕРИАЛЫ КУРСА -->
+            <div id="course-content" class="page-block active-page">
+                
+                <!-- БЛОК ДИСЦИПЛИНЫ 1 (Показан по умолчанию) -->
+                <div id="discipline-1-container" class="discipline-view">
+                    <div class="breadcrumbs">В начало / Мои курсы / Дисциплина 1 / Просмотр</div>
+                    <h1 class="course-title">Дисциплина 1. Организационно-правовое обеспечение дополнительного образования</h1>
+
+                    <!-- Тема 1 -->
+                    <div class="section" id="section-1">
+                        <h2 class="section-title">Тема 1. Общая характеристика системы дополнительного образования в РФ</h2>
+                        <ul class="activity-list">
+                            <li class="activity-item step-item"><span class="icon">📄</span><div class="activity-info"><h4><a href="lecture1_1.pdf" target="_blank" class="task-link">Лекция 1. Нормативно-правовые основы ДО</a></h4><p>Изучите базовые документы.</p></div><input type="checkbox" class="progress-checkbox"></li>
+                            <li class="activity-item step-item locked"><span class="icon">📝</span><div class="activity-info"><h4><a href="#" class="task-link test-trigger">Тест по Теме 1 <span>(Доступно после Лекции 1)</span></a></h4><p>15 минут.</p></div><input type="checkbox" class="progress-checkbox" disabled></li>
+                        </ul>
+                    </div>
+
+                    <!-- Тема 2 -->
+                    <div class="section section-locked" id="section-2">
+                        <h2 class="section-title">Тема 2. Основополагающие нормативно-правовые документы в области защиты прав ребенка 🔒</h2>
+                        <ul class="activity-list">
+                            <li class="activity-item step-item locked"><span class="icon">📄</span><div class="activity-info"><h4><a href="lecture1_2.pdf" target="_blank" class="task-link">Лекция 2. Нормативно-правовые акты РФ... <span>(Доступно после Теста 1)</span></a></h4></div><input type="checkbox" class="progress-checkbox" disabled></li>
+                            <li class="activity-item step-item locked"><span class="icon">📝</span><div class="activity-info"><h4><a href="#" class="task-link test2-trigger">Тест по Теме 2 <span>(Доступно после Лекции 2)</span></a></h4></div><input type="checkbox" class="progress-checkbox" disabled></li>
+                        </ul>
+                    </div>
+                    <!-- Тема 3 -->
+                    <div class="section section-locked" id="section-3">
+                        <h2 class="section-title">Теma 3. Содержание дополнительного образования. Концепция развития дополнительного образования 🔒</h2>
+                        <ul class="activity-list">
+                            <li class="activity-item step-item locked"><span class="icon">📄</span><div class="activity-info"><h4><a href="lecture1_3.pdf" target="_blank" class="task-link">Лекция 3. Концепция развития ДО... <span>(Доступно после Теста 2)</span></a></h4></div><input type="checkbox" class="progress-checkbox" disabled></li>
+                            <li class="activity-item step-item locked"><span class="icon">📝</span><div class="activity-info"><h4><a href="#" class="task-link test3-trigger">Итоговый тест по Теме 3 <span>(Доступно после Лекции 3)</span></a></h4></div><input type="checkbox" class="progress-checkbox" disabled></li>
+                        </ul>
+                    </div>
+                    <!-- Тема 4 -->
+                    <div class="section section-locked" id="section-4">
+                        <h2 class="section-title">Тема 4. Особенности правового статуса учреждения дополнительного образования 🔒</h2>
+                        <ul class="activity-list">
+                            <li class="activity-item step-item locked"><span class="icon">📄</span><div class="activity-info"><h4><a href="lecture1_4.pdf" target="_blank" class="task-link">Лекция 4. Правовой статус, лицензирование... <span>(Доступно после Теста 3)</span></a></h4></div><input type="checkbox" class="progress-checkbox" disabled></li>
+                            <li class="activity-item step-item locked"><span class="icon">📝</span><div class="activity-info"><h4><a href="#" class="task-link test4-trigger">Тест по Теме 4 <span>(Доступно после Лекции 4)</span></a></h4></div><input type="checkbox" class="progress-checkbox" disabled></li>
+                        </ul>
+                    </div>
+                    <!-- Тема 5 -->
+                    <div class="section section-locked" id="section-5">
+                        <h2 class="section-title">Тема 5. Финансово-экономические аспекты системы дополнительного образования 🔒</h2>
+                        <ul class="activity-list">
+                            <li class="activity-item step-item locked"><span class="icon">📄</span><div class="activity-info"><h4><a href="lecture1_5.pdf" target="_blank" class="task-link">Лекция 5. Финансирование, платные услуги... <span>(Доступно после Теста 4)</span></a></h4></div><input type="checkbox" class="progress-checkbox" disabled></li>
+                            <li class="activity-item step-item locked"><span class="icon">📝</span><div class="activity-info"><h4><a href="#" class="task-link test5-trigger">Тест по Теме 5 <span>(Доступно после Лекции 5)</span></a></h4></div><input type="checkbox" class="progress-checkbox" disabled></li>
+                        </ul>
+                    </div>
+                    <!-- Тема 6 -->
+                    <div class="section section-locked" id="section-6">
+                        <h2 class="section-title">Тема 6. Нормативно-правовое обеспечение деятельности педагога ДО 🔒</h2>
+                        <ul class="activity-list">
+                            <li class="activity-item step-item locked"><span class="icon">📄</span><div class="activity-info"><h4><a href="lecture1_6.pdf" target="_blank" class="task-link">Лекция 6. Правовой статус, профстандарт... <span>(Доступно после Теста 5)</span></a></h4></div><input type="checkbox" class="progress-checkbox" disabled></li>
+                            <li class="activity-item step-item locked"><span class="icon">📝</span><div class="activity-info"><h4><a href="#" class="task-link test6-trigger">Тест по Теме 6 <span>(Доступно после Лекции 6)</span></a></h4></div><input type="checkbox" class="progress-checkbox" disabled></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- БЛОК ДИСЦИПЛИНЫ 2 -->
+                <div id="discipline-2-container" class="discipline-view" style="display: none;">
+                    <div class="breadcrumbs">В начало / Мои курсы / Дисциплина 2 / Просмотр</div>
+                    <h1 class="course-title">Дисциплина 2. Организация преподавания по дополнительным образовательным программам</h1>
+                    <!-- Дисциплина 2: Тема 1 -->
+                    <div class="section" id="section-2-1">
+                        <h2 class="section-title">Тема 1. Методические основы преподавания по ДОП</h2>
+                        <ul class="activity-list">
+                            <li class="activity-item step-item"><span class="icon">📄</span><div class="activity-info"><h4><a href="lecture2_1.pdf" target="_blank" class="task-link">Лекция 1. Проектирование дополнительных общеобразовательных программ</a></h4><p>Изучите структуру и принципы разработки современных программ ДО.</p></div><input type="checkbox" class="progress-checkbox"></li>
+                            <li class="activity-item step-item locked"><span class="icon">📝</span><div class="activity-info"><h4><a href="#" class="task-link test7-trigger">Тест по Теме 1 (Дисциплина 2) <span>(Доступно после Лекции 1)</span></a></h4><p>Пройтите тест по проектированию образовательных программ.</p></div><input type="checkbox" class="progress-checkbox" disabled></li>
+                        </ul>
+                    </div>
+                    <!-- Дисциплина 2: Тема 2 -->
+                    <div class="section section-locked" id="section-2-2">
+                        <h2 class="section-title">Тема 2. Классификация методов и форм обучения 🔒</h2>
+                        <ul class="activity-list">
+                            <li class="activity-item step-item locked"><span class="icon">📄</span><div class="activity-info"><h4><a href="lecture2_2.pdf" target="_blank" class="task-link">Лекция 2. Понятие о методах, приемах и формах организации обучения <span>(Доступно после Теста 1)</span></a></h4></div><input type="checkbox" class="progress-checkbox" disabled></li>
+                            <li class="activity-item step-item locked"><span class="icon">📝</span><div class="activity-info"><h4><a href="#" class="task-link test8-trigger">Тест по Теме 2 (Дисциплина 2) <span>(Доступно после Лекции 2)</span></a></h4></div><input type="checkbox" class="progress-checkbox" disabled></li>
+                        </ul>
+                    </div>
+                    <!-- Дисциплина 2: Тема 3 -->
+                    <div class="section section-locked" id="section-2-3">
+                        <h2 class="section-title">Тема 3. Классификация технологий обучения 🔒</h2>
+                        <ul class="activity-list">
+                            <li class="activity-item step-item locked"><span class="icon">📄</span><div class="activity-info"><h4><a href="lecture2_3.pdf" target="_blank" class="task-link">Лекция 3. Понятие, структура и классификация современных образовательных технологий <span>(Доступно после Теста 2)</span></a></h4></div><input type="checkbox" class="progress-checkbox" disabled></li>
+                            <li class="activity-item step-item locked"><span class="icon">📝</span><div class="activity-info"><h4><a href="#" class="task-link test9-trigger">Тест по Теме 3 (Дисциплина 2) <span>(Доступно после Лекции 3)</span></a></h4></div><input type="checkbox" class="progress-checkbox" disabled></li>
+                        </ul>
+                    </div>
+                    <!-- Дисциплина 2: Тема 4 -->
+                    <div class="section section-locked" id="section-2-4">
+                        <h2 class="section-title">Тема 4. Общие основы психолого-педагогического сопровождения детей в системе дополнительного образования 🔒</h2>
+                        <ul class="activity-list">
+                            <!-- Шаг 18: Лекция 4 Дисциплины 2 -->
+                            <li class="activity-item step-item locked">
+                                <span class="icon">📄</span>
+                                <div class="activity-info">
+                                    <h4><a href="lecture2_4.pdf" target="_blank" class="task-link">Лекция 4. Сущность, функции, принципы и этапы психолого-педагогического сопровождения <span>(Доступно после Теста 3 Дисциплины 2)</span></a></h4>
+                                    <p>Изучите целевые и инструментальные функции сопровождения, развитие 7 сфер индивидуальности и этапы проблематизации.</p>
+                                </div>
+                                <input type="checkbox" class="progress-checkbox" disabled>
+                            </li>
+                            <!-- Шаг 19: Тест 4 Дисциплины 2 -->
+                            <li class="activity-item step-item locked">
+                                <span class="icon">📝</span>
+                                <div class="activity-info">
+                                    <h4><a href="#" class="task-link test10-trigger">Тест по Теме 4 (Дисциплина 2) <span>(Доступно после Лекции 4)</span></a></h4>
+                                    <p>Пройтите тест по моделям О.С. Газмана, экзистенциальной и мотивационной сферам ребенка.</p>
+                                </div>
+                                <input type="checkbox" class="progress-checkbox" disabled>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Дисциплина 2: Тема 5 -->
+                    <div class="section section-locked" id="section-2-5">
+                        <h2 class="section-title">Тема 5. Развитие креативности и творческих способностей детей в системе дополнительного образования 🔒</h2>
+                        <ul class="activity-list">
+                            <!-- Шаг 20: Лекция 5 Дисциплины 2 -->
+                            <li class="activity-item step-item locked">
+                                <span class="icon">📄</span>
+                                <div class="activity-info">
+                                    <h4><a href="lecture2_5.pdf" target="_blank" class="task-link">Лекция 5. Педагогические основы развития креативности и применение методов ТРИЗ <span>(Доступно после Теста 4 Дисциплины 2)</span></a></h4>
+                                    <p>Изучите условия развития творческого потенциала по Р.С. Немову, компоненты креативной среды и приемы снятия психологической инерции.</p>
+                                </div>
+                                <input type="checkbox" class="progress-checkbox" disabled>
+                            </li>
+                            <!-- Шаг 21: Тест 5 Дисциплины 2 -->
+                            <li class="activity-item step-item locked">
+                                <span class="icon">📝</span>
+                                <div class="activity-info">
+                                    <h4><a href="#" class="task-link test11-trigger">Тест по Теме 5 (Дисциплина 2) <span>(Доступно после Лекции 5)</span></a></h4>
+                                    <p>Пройтите итоговый тест по методам ТРИЗ, признакам творчества и условиям креативной среды.</p>
+                                </div>
+                                <input type="checkbox" class="progress-checkbox" disabled>
+                            </li>
+                        </ul>
+                    </div>
+                </div> <!-- Конец блока discipline-2-container -->
+                <!-- БЛОК ДИСЦИПЛИНЫ 3 -->
+                <div id="discipline-3-container" class="discipline-view" style="display: none;">
+                    <div class="breadcrumbs">В начало / Мои курсы / Дисциплина 3 / Просмотр</div>
+                    <h1 class="course-title">Дисциплина 3. Методика организации досуговой деятельности обучающихся</h1>
+
+                    <!-- Дисциплина 3: Тема 1 -->
+                    <div class="section" id="section-3-1">
+                        <h2 class="section-title">Тема 1. Сущность, функции и принципы культурно-досуговой деятельности</h2>
+                        <ul class="activity-list">
+                            <!-- Шаг 22 (Индекс 22): Лекция 1 Дисциплины 3 -->
+                            <li class="activity-item step-item locked">
+                                <span class="icon">📄</span>
+                                <div class="activity-info">
+                                    <h4><a href="lecture3_1.pdf" target="_blank" class="task-link">Лекция 1. Основы методологии культурно-досуговой деятельности обучающихся <span>(Доступно после Дисциплины 2)</span></a></h4>
+                                    <p>Изучите социальные функции КДД, дифференцированный подход и тенденции гуманизации.</p>
+                                </div>
+                                <input type="checkbox" class="progress-checkbox" disabled>
+                            </li>
+                            <!-- Шаг 23 (Индекс 23): Тест 1 Дисциплины 3 -->
+                            <li class="activity-item step-item locked">
+                                <span class="icon">📝</span>
+                                <div class="activity-info">
+                                    <h4><a href="#" class="task-link test12-trigger">Тест по Теме 1 (Дисциплина 3) <span>(Доступно после Лекции 1)</span></a></h4>
+                                    <p>Пройтите тест по принципам, тенденциям и целям организации КДД.</p>
+                                </div>
+                                <input type="checkbox" class="progress-checkbox" disabled>
+                            </li>
+                        </ul>
+                    </div>                    
+                    <!-- Дисциплина 3: Тема 2 -->
+                    <div class="section section-locked" id="section-3-2">
+                        <h2 class="section-title">Тема 2. Методика и сценарное мастерство в культурно-досуговой деятельности 🔒</h2>
+                        <ul class="activity-list">
+                            <!-- Шаг 24: Лекция 2 Дисциплины 3 -->
+                            <li class="activity-item step-item locked">
+                                <span class="icon">📄</span>
+                                <div class="activity-info">
+                                    <h4><a href="lecture3_2.pdf" target="_blank" class="task-link">Лекция 2. Сценарно-режиссерские основы и классификация методов КДД <span>(Доступно после Теста 1 Дисциплины 3)</span></a></h4>
+                                    <p>Изучите общую и частную методику, структуру литературного сценария, экспозицию и кульминацию замысла.</p>
+                                </div>
+                                <input type="checkbox" class="progress-checkbox" disabled>
+                            </li>
+                            <!-- Шаг 25: Тест 2 Дисциплины 3 -->
+                            <li class="activity-item step-item locked">
+                                <span class="icon">📝</span>
+                                <div class="activity-info">
+                                    <h4><a href="#" class="task-link test13-trigger">Тест по Теме 2 (Дисциплина 3) <span>(Доступно после Лекции 2)</span></a></h4>
+                                    <p>Пройтите тест по массовым формам организации досуга и структуре сценариев.</p>
+                                </div>
+                                <input type="checkbox" class="progress-checkbox" disabled>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Дисциплина 3: Тема 3 -->
+                    <div class="section section-locked" id="section-3-3">
+                        <h2 class="section-title">Тема 3. Классификация и специфика форм культурно-досуговой деятельности 🔒</h2>
+                        <ul class="activity-list">
+                            <!-- Шаг 26: Лекция 3 Дисциплины 3 -->
+                            <li class="activity-item step-item locked">
+                                <span class="icon">📄</span>
+                                <div class="activity-info">
+                                    <h4><a href="lecture3_3.pdf" target="_blank" class="task-link">Лекция 3. Характеристика игровых, зрелищных и экскурсионных форм КДД <span>(Доступно после Теста 2 Дисциплины 3)</span></a></h4>
+                                    <p>Изучите общинные традиции гуляний, основы речевого воздействия, специфику экскурсий, флэшмобов и парадов.</p>
+                                </div>
+                                <input type="checkbox" class="progress-checkbox" disabled>
+                            </li>
+                            <!-- Шаг 27: Тест 3 Дисциплины 3 -->
+                            <li class="activity-item step-item locked">
+                                <span class="icon">📝</span>
+                                <div class="activity-info">
+                                    <h4><a href="#" class="task-link test14-trigger">Тест по Теме 3 (Дисциплина 3) <span>(Доступно после Лекции 3)</span></a></h4>
+                                    <p>Пройтите тест по флэшмобам, речевому воздействию и классификации досуговых акций.</p>
+                                </div>
+                                <input type="checkbox" class="progress-checkbox" disabled>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Дисциплина 3: Тема 4 -->
+                    <div class="section section-locked" id="section-3-4">
+                        <h2 class="section-title">Тема 4. Организация и методика проведения массовых культурно-досуговых программ 🔒</h2>
+                        <ul class="activity-list">
+                            <!-- Шаг 28: Лекция 4 Дисциплины 3 -->
+                            <li class="activity-item step-item locked">
+                                <span class="icon">📄</span>
+                                <div class="activity-info">
+                                    <h4><a href="lecture3_4.pdf" target="_blank" class="task-link">Лекция 4. Технологии активизации аудитории, конкурсные программы и этикет массовых форм досуга <span>(Доступно после Теста 3 Дисциплины 3)</span></a></h4>
+                                    <p>Изучите методику интерактивного взаимодействия, конструирование игровых программ и правила поведения на массовых акциях.</p>
+                                </div>
+                                <input type="checkbox" class="progress-checkbox" disabled>
+                            </li>
+                            <!-- Шаг 29: Тест 4 Дисциплины 3 -->
+                            <li class="activity-item step-item locked">
+                                <span class="icon">📝</span>
+                                <div class="activity-info">
+                                    <h4><a href="#" class="task-link test15-trigger">Тест по Теме 4 (Дисциплина 3) <span>(Доступно после Лекции 4)</span></a></h4>
+                                    <p>Пройтите тест по методикам проведения игровых и шоу-программ для обучающихся.</p>
+                                </div>
+                                <input type="checkbox" class="progress-checkbox" disabled>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Дисциплина 3: Тема 5 -->
+                    <div class="section section-locked" id="section-3-5">
+                        <h2 class="section-title">Тема 5. Специфика организации культурно-досуговой деятельности с различными категориями населения 🔒</h2>
+                        <ul class="activity-list">
+                            <!-- Шаг 30: Лекция 5 Дисциплины 3 -->
+                            <li class="activity-item step-item locked">
+                                <span class="icon">📄</span>
+                                <div class="activity-info">
+                                    <h4><a href="lecture3_5.pdf" target="_blank" class="task-link">Лекция 5. Инклюзивный досуг, волонтерское движение и возрастная специфика КДД <span>(Доступно после Теста 4 Дисциплины 3)</span></a></h4>
+                                    <p>Изучите особенности работы с молодежью, пожилыми людьми, инвалидами и методику развития добровольчества.</p>
+                                </div>
+                                <input type="checkbox" class="progress-checkbox" disabled>
+                            </li>
+                            <!-- Шаг 31: Тест 5 Дисциплины 3 -->
+                            <li class="activity-item step-item locked">
+                                <span class="icon">📝</span>
+                                <div class="activity-info">
+                                    <h4><a href="#" class="task-link test16-trigger">Тест по Теме 5 (Дисциплина 3) <span>(Доступно после Лекции 5)</span></a></h4>
+                                    <p>Финальное тестирование по методикам работы с особыми и возрастными категориями населения.</p>
+                                </div>
+                                <input type="checkbox" class="progress-checkbox" disabled>
+                            </li>
+                        </ul>
+                    </div>
+                </div> <!-- Конец блока discipline-3-container -->
+                <!-- БЛОК ДИСЦИПЛИНЫ 4 -->
+<div id="discipline-4-container" class="discipline-view" style="display: none;">
+    <div class="breadcrumbs">В начало / Мои курсы / Дисциплина 4 / Просмотр</div>
+    <h1 class="course-title" style="font-size: 1.6rem;">Дисциплина 4. Психолого-педагогические основы взаимодействия педагога дополнительного образования с родителями (законными представителями) обучающихся</h1>
+
+    <!-- Тема 4.1 -->
+    <div class="section" id="section-4-1">
+        <h2 class="section-title">Тема 4.1. Особенности семьи как основы воспитания ребенка</h2>
+        <ul class="activity-list">
+            <!-- Шаг 32: Лекция 1 Дисциплины 4 (lecture4_1.pdf) -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📄</span>
+                <div class="activity-info">
+                    <h4><a href="lecture4_1.pdf" target="_blank" class="task-link">Лекция 1. Особенности семьи как основы воспитания ребенка <span>(Доступно после Дисциплины 3)</span></a></h4>
+                    <p>Изучите функции семьи, традиции и тактики семейного воспитания.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+            <!-- Шаг 33: Тест 1 Дисциплины 4 (Тест №17) -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📝</span>
+                <div class="activity-info">
+                    <h4><a href="#" class="task-link test17-trigger">Тест по Теме 4.1 <span>(Доступно после Лекции 1)</span></a></h4>
+                    <p>Пройтите тест по типам семей и руководству семейным образом жизни.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+        </ul>
+    </div>
+        <!-- Тема 4.2 (Добавляется внутрь discipline-4-container сразу под Темой 4.1) -->
+    <div class="section section-locked" id="section-4-2">
+        <h2 class="section-title">Тема 4.2. Педагогические основы взаимодействия педагога дополнительного образования и семьи 🔒</h2>
+        <ul class="activity-list">
+            <!-- Шаг 34: Лекция 2 Дисциплины 4 -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📄</span>
+                <div class="activity-info">
+                    <h4><a href="lecture4_2.pdf" target="_blank" class="task-link">Лекция 2. Педагогические основы взаимодействия... <span>(Доступно после Теста 4.1)</span></a></h4>
+                    <p>Изучите принципы, условия и направления содержательной деятельности педагога с семьей.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+            <!-- Шаг 35: Тест 2 Дисциплины 4 (Тест №18) -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📝</span>
+                <div class="activity-info">
+                    <h4><a href="#" class="task-link test18-trigger">Тест по Теме 4.2 <span>(Доступно после Лекции 2)</span></a></h4>
+                    <p>Пройтите тест по условиям, принципам и открытости образовательной среды.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+        </ul>
+    </div>    <!-- Тема 4.3 (Добавляется внутрь discipline-4-container сразу под Темой 4.2) -->
+    <div class="section section-locked" id="section-4-3">
+        <h2 class="section-title">Тема 4.3. Формы и методы работы педагога дополнительного образования с семьей 🔒</h2>
+        <ul class="activity-list">
+            <!-- Шаг 36: Лекция 3 Дисциплины 4 -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📄</span>
+                <div class="activity-info">
+                    <h4><a href="lecture4_3.pdf" target="_blank" class="task-link">Лекция 3. Формы и методы работы педагога с семьей <span>(Доступно после Теста 4.2)</span></a></h4>
+                    <p>Изучите классификацию коллективных, групповых и индивидуальных форм взаимодействия.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+            <!-- Шаг 37: Тест 3 Дисциплины 4 (Тест №19) -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📝</span>
+                <div class="activity-info">
+                    <h4><a href="#" class="task-link test19-trigger">Тест по Теме 4.3 <span>(Доступно после Лекции 3)</span></a></h4>
+                    <p>Пройтите тест по методам формирования сознания и формам родительского всеобуча.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+        </ul>
+    </div>    <!-- Тема 4.4 (Добавляется внутрь discipline-4-container сразу под Темой 4.3) -->
+    <div class="section section-locked" id="section-4-4">
+        <h2 class="section-title">Тема 4.4. Методика проведения родительских собраний и индивидуальных бесед 🔒</h2>
+        <ul class="activity-list">
+            <!-- Шаг 38: Лекция 4 Дисциплины 4 -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📄</span>
+                <div class="activity-info">
+                    <h4><a href="lecture4_4.pdf" target="_blank" class="task-link">Лекция 4. Методика проведения родительских собраний и бесед <span>(Доступно после Теста 4.3)</span></a></h4>
+                    <p>Изучите этапы подготовки к собраниям, структуру беседы и правила телефонного этикета.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+            <!-- Шаг 39: Тест 4 Дисциплины 4 (Тест №20) -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📝</span>
+                <div class="activity-info">
+                    <h4><a href="#" class="task-link test20-trigger">Тест по Теме 4.4 <span>(Доступно после Лекции 4)</span></a></h4>
+                    <p>Пройтите тест по структуре родительских собраний и педагогическому такту в беседах.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+        </ul>
+    </div>
+        <!-- Тема 4.5 (Добавляется внутрь discipline-4-container сразу под Темой 4.4) -->
+    <div class="section section-locked" id="section-4-5">
+        <h2 class="section-title">Тема 4.5. Организация совместной досуговой деятельности и массовых мероприятий с родителями 🔒</h2>
+        <ul class="activity-list">
+            <!-- Шаг 40: Лекция 5 Дисциплины 4 -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📄</span>
+                <div class="activity-info">
+                    <h4><a href="lecture4_5.pdf" target="_blank" class="task-link">Лекция 5. Организация совместной досуговой деятельности <span>(Доступно после Теста 4.4)</span></a></h4>
+                    <p>Изучите функции и уровни семейного досуга, а также методику проектирования праздников.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+            <!-- Шаг 41: Тест 5 Дисциплины 4 (Тест №21) -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📝</span>
+                <div class="activity-info">
+                    <h4><a href="#" class="task-link test21-trigger">Тест по Теме 4.5 <span>(Доступно после Лекции 5)</span></a></h4>
+                    <p>Пройтите тест по культурно-досуговым формам взаимодействия и уровням семейного досуга.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+        </ul>
+    </div>
+</div> <!-- Конец блока discipline-4-container -->
+<!-- БЛОК ДИСЦИПЛИНЫ 5 -->
+<div id="discipline-5-container" class="discipline-view" style="display: none;">
+    <div class="breadcrumbs">В начало / Мои курсы / Дисциплина 5 / Просмотр</div>
+    <h1 class="course-title" style="font-size: 1.6rem;">Дисциплина 5. Программно-методическое обеспечение дополнительного образования</h1>
+
+    <!-- Тема 5.1 -->
+    <div class="section" id="section-5-1">
+        <h2 class="section-title">Тема 5.1. Теоретические основы программно-методического обеспечения</h2>
+        <ul class="activity-list">
+            <!-- Шаг 42 -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📄</span>
+                <div class="activity-info">
+                    <h4><a href="lecture5_1.pdf" target="_blank" class="task-link">Лекция 1. Основы программно-методического обеспечения <span>(Доступно после Дисциплины 4)</span></a></h4>
+                    <p>Изучите структуру ДОП, виды учебной документации и уровни освоения навыков.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+            <!-- Шаг 43 -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📝</span>
+                <div class="activity-info">
+                    <h4><a href="#" class="task-link test22-trigger">Тест по Теме 5.1 <span>(Доступно после Лекции 1)</span></a></h4>
+                    <p>Пройтите тест по структуре программ, рецензированию и тестированию.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+        </ul>
+    </div>
+        <!-- Тема 5.2 (Добавляется внутрь discipline-5-container сразу под Темой 5.1) -->
+    <div class="section section-locked" id="section-5-2">
+        <h2 class="section-title">Тема 5.2. Проектирование индивидуальных образовательных маршрутов и траекторий 🔒</h2>
+        <ul class="activity-list">
+            <!-- Шаг 44: Лекция 2 Дисциплины 5 -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📄</span>
+                <div class="activity-info">
+                    <h4><a href="lecture5_2.pdf" target="_blank" class="task-link">Лекция 2. Индивидуальные образовательные маршруты <span>(Доступно после Теста 5.1)</span></a></h4>
+                    <p>Изучите понятия образовательной траектории, этапы проведения занятий и игровые технологии.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+            <!-- Шаг 45: Тест 2 Дисциплины 5 (Тест №23) -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📝</span>
+                <div class="activity-info">
+                    <h4><a href="#" class="task-link test23-trigger">Тест по Теме 5.2 <span>(Доступно после Лекции 2)</span></a></h4>
+                    <p>Пройтите тест по траекториям обучения, структуре занятий и социодраме.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+        </ul>
+    </div>
+    <!-- Тема 5.3 (Добавляется внутрь discipline-5-container сразу под Темой 5.2) -->
+    <div class="section section-locked" id="section-5-3">
+        <h2 class="section-title">Тема 5.3. Методические основы конструирования учебного занятия в системе дополнительного образования детей 🔒</h2>
+        <ul class="activity-list">
+            <!-- Шаг 46: Лекция 3 Дисциплины 5 -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📄</span>
+                <div class="activity-info">
+                    <h4><a href="lecture5_3.pdf" target="_blank" class="task-link">Лекция 3. Методические основы конструирования занятия <span>(Доступно после Теста 5.2)</span></a></h4>
+                    <p>Изучите триаду задач занятия, этапы проектирования конспектов и структуру типов учебных встреч.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+            <!-- Шаг 47: Тест 3 Дисциплины 5 (Тест №24) -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📝</span>
+                <div class="activity-info">
+                    <h4><a href="#" class="task-link test24-trigger">Тест по Теме 5.3 <span>(Доступно после Лекции 3)</span></a></h4>
+                    <p>Пройтите тест по этапам структуры занятия, формулированию целей и разработке планов-конспектов.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+        </ul>
+    </div>
+    <!-- Тема 5.4 (Добавляется внутрь discipline-5-container сразу под Темой 5.3) -->
+    <div class="section section-locked" id="section-5-4">
+        <h2 class="section-title">Тема 5.4. Особенности разработки и оформления структурных компонентов ДОП 🔒</h2>
+        <ul class="activity-list">
+            <!-- Шаг 48: Лекция 4 Дисциплины 5 -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📄</span>
+                <div class="activity-info">
+                    <h4><a href="lecture5_4.pdf" target="_blank" class="task-link">Лекция 4. Особенности разработки и оформления ДОП <span>(Доступно после Теста 5.3)</span></a></h4>
+                    <p>Изучите специфику предпрофессиональных программ, правила заполнения пояснительной записки и УТП.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+            <!-- Шаг 49: Тест 4 Дисциплины 5 (Тест №25) -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📝</span>
+                <div class="activity-info">
+                    <h4><a href="#" class="task-link test25-trigger">Тест по Теме 5.4 <span>(Доступно после Лекции 4)</span></a></h4>
+                    <p>Пройтите тест по оформлению содержания программ, адресатам обучения и неформальному образованию.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+        </ul>
+    </div>
+    <!-- Тема 5.5 (Добавляется внутрь discipline-5-container сразу под Темой 5.4) -->
+    <div class="section section-locked" id="section-5-26">
+        <h2 class="section-title">Тема 5.5. Мониторинг и оценка качества программно-методического обеспечения 🔒</h2>
+        <ul class="activity-list">
+            <!-- Шаг 50: Лекция 5 Дисциплины 5 -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📄</span>
+                <div class="activity-info">
+                    <h4><a href="lecture5_5.pdf" target="_blank" class="task-link">Лекция 5. Мониторинг и оценка качества программно-методического обеспечения <span>(Доступно после Теста 5.4)</span></a></h4>
+                    <p>Изучите этапы проведения мониторинга, критерии независимой оценки качества и формы внутреннего аудита.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+            <!-- Шаг 51: Тест 5 Дисциплины 5 (Тест №26) -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📝</span>
+                <div class="activity-info">
+                    <h4><a href="#" class="task-link test26-trigger">Тест по Теме 5.5 <span>(Доступно после Лекции 5)</span></a></h4>
+                    <p>Пройтите финальный тест по этапам мониторинга, индикаторам оценки систем ДО и стейкхолдерам качества.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+        </ul>
+    </div>
+</div> <!-- Конец блока discipline-5-container -->
+<!-- БЛОК ДИСЦИПЛИНЫ 6 -->
+<div id="discipline-6-container" class="discipline-view" style="display: none;">
+    <div class="breadcrumbs">В начало / Мои курсы / Дисциплина 6 / Просмотр</div>
+    <h1 class="course-title" style="font-size: 1.6rem;">Дисциплина 6. Педагогический контроль и оценивание в дополнительном образовании</h1>
+
+    <!-- Тема 6.1 -->
+    <div class="section" id="section-6-1">
+        <h2 class="section-title">Тема 6.1. Теоретические основы педагогического контроля и диагностики</h2>
+        <ul class="activity-list">
+            <!-- Шаг 52 -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📄</span>
+                <div class="activity-info">
+                    <h4><a href="lecture6_1.pdf" target="_blank" class="task-link">Лекция 1. Основы педагогического контроля и диагностики <span>(Доступно после Дисциплины 5)</span></a></h4>
+                    <p>Изучите понятия образовательных результатов, коммуникативных навыков и методы диагностики.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+            <!-- Шаг 53 -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📝</span>
+                <div class="activity-info">
+                    <h4><a href="#" class="task-link test27-trigger">Тест по Теме 6.1 <span>(Доступно после Лекции 1)</span></a></h4>
+                    <p>Пройтите тест по видам умений, педагогической диагностике и объективности оценивания результатов.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+        </ul>
+    </div>
+        <!-- Тема 6.2 (Добавляется внутрь discipline-6-container сразу под Темой 6.1) -->
+    <div class="section section-locked" id="section-6-2">
+        <h2 class="section-title">Тема 6.2. Критерии и параметры оценивания результатов образовательной деятельности 🔒</h2>
+        <ul class="activity-list">
+            <!-- Шаг 54: Лекция 2 Дисциплины 6 -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📄</span>
+                <div class="activity-info">
+                    <h4><a href="lecture6_2.pdf" target="_blank" class="task-link">Лекция 2. Критерии и параметры оценивания результатов <span>(Доступно после Теста 6.1)</span></a></h4>
+                    <p>Изучите параметры результативности, основы рефлексии и принципы построения рейтинговых шкал.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+            <!-- Шаг 55: Тест 2 Дисциплины 6 (Тест №28) -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📝</span>
+                <div class="activity-info">
+                    <h4><a href="#" class="task-link test28-trigger">Тест по Теме 6.2 <span>(Доступно после Лекции 2)</span></a></h4>
+                    <p>Пройтите тест по рейтинговым системам, рефлексивным методам и вариативности контроля.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+        </ul>
+    </div>
+    <!-- Тема 6.3 (Добавляется внутрь discipline-6-container сразу под Темой 6.2) -->
+    <div class="section section-locked" id="section-6-3">
+        <h2 class="section-title">Тема 6.3. Технология портфолио в системе контроля и оценки достижений обучающихся 🔒</h2>
+        <ul class="activity-list">
+            <!-- Шаг 56: Лекция 3 Дисциплины 6 -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📄</span>
+                <div class="activity-info">
+                    <h4><a href="lecture6_3.pdf" target="_blank" class="task-link">Лекция 3. Технология портфолио в системе контроля <span>(Доступно после Теста 6.2)</span></a></h4>
+                    <p>Изучите виды портфолио, возрастные особенности фиксации достижений и критерии самооценки.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+            <!-- Шаг 57: Тест 3 Дисциплины 6 (Тест №29) -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📝</span>
+                <div class="activity-info">
+                    <h4><a href="#" class="task-link test29-trigger">Тест по Теме 6.3 <span>(Доступно после Лекции 3)</span></a></h4>
+                    <p>Пройтите тест по целям ведения портфолио, фиксации успехов и специфике оценки в начальных и старших классах.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+        </ul>
+    </div>
+    <!-- Тема 6.4 (Добавляется внутрь discipline-6-container сразу под Темой 6.3) -->
+    <div class="section section-locked" id="section-6-4">
+        <h2 class="section-title">Тема 6.4. Организация, формы и методы текущего контроля и промежуточной аттестации 🔒</h2>
+        <ul class="activity-list">
+            <!-- Шаг 58: Лекция 4 Дисциплины 6 -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📄</span>
+                <div class="activity-info">
+                    <h4><a href="lecture6_4.pdf" target="_blank" class="task-link">Лекция 4. Организация текущего контроля и аттестации <span>(Доступно после Теста 6.3)</span></a></h4>
+                    <p>Изучите функции контроля, требования к объективности оценивания и психологические особенности фиксации результатов.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+            <!-- Шаг 59: Тест 4 Дисциплины 6 (Тест №30) -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📝</span>
+                <div class="activity-info">
+                    <h4><a href="#" class="task-link test30-trigger">Тест по Теме 6.4 <span>(Доступно после Лекции 4)</span></a></h4>
+                    <p>Пройтите тест по формам фиксации контроля, обучающей функции проверок и видам педагогической аттестации.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+        </ul>
+    </div>
+    <!-- Тема 6.5 (Добавляется внутрь discipline-6-container сразу под Темой 6.4) -->
+    <div class="section section-locked" id="section-6-5">
+        <h2 class="section-title">Тема 6.5. Организация, формы и методы итогового контроля и оценки результатов 🔒</h2>
+        <ul class="activity-list">
+            <!-- Шаг 60: Лекция 5 Дисциплины 6 -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📄</span>
+                <div class="activity-info">
+                    <h4><a href="lecture6_5.pdf" target="_blank" class="task-link">Лекция 5. Организация итогового контроля и оценки результатов <span>(Доступно после Теста 6.4)</span></a></h4>
+                    <p>Изучите диагностику образовательных потребностей, карты учета достижений объединений и влияние родительской позиции.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+            <!-- Шаг 61: Тест 5 Дисциплины 6 (Тест №31) -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📝</span>
+                <div class="activity-info">
+                    <h4><a href="#" class="task-link test31-trigger">Тест по Теме 6.5 <span>(Доступно после Лекции 5)</span></a></h4>
+                    <p>Пройтите финальный тест по анализу родительских позиций, учету конкурсной активности и социальным запросам в ДО.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+        </ul>
+    </div>
+</div> <!-- Конец блока discipline-6-container -->
+<!-- БЛОК ДИСЦИПЛИНЫ 7 -->
+<div id="discipline-7-container" class="discipline-view" style="display: none;">
+    <div class="breadcrumbs">В начало / Мои курсы / Дисциплина 7 / Просмотр</div>
+    <h1 class="course-title" style="font-size: 1.6rem;">Дисциплина 7. Педагогические технологии на основе деятельностного подхода в дополнительном образовании детей</h1>
+
+    <!-- Тема 7.1 -->
+    <div class="section" id="section-7-1">
+        <h2 class="section-title">Тема 7.1. Теоретические основы деятельностного подхода в дополнительном образовании</h2>
+        <ul class="activity-list">
+            <!-- Шаг 62 -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📄</span>
+                <div class="activity-info">
+                    <h4><a href="lecture7_1.pdf" target="_blank" class="task-link">Лекция 1. Теоретические основы деятельностного подхода <span>(Доступно после Дисциплины 6)</span></a></h4>
+                    <p>Изучите концепцию системно-деятельностного подхода, структуру учебной деятельности и методы активизации.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+            <!-- Шаг 63 -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📝</span>
+                <div class="activity-info">
+                    <h4><a href="#" class="task-link test32-trigger">Тест по Теме 7.1 <span>(Доступно после Лекции 1)</span></a></h4>
+                    <p>Пройтите тест по компонентам деятельности, ведущим принципам и технологиям вовлечения.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+        </ul>
+    </div>
+        <!-- Тема 7.2 (Добавляется внутрь discipline-7-container сразу под Темой 7.1) -->
+    <div class="section section-locked" id="section-7-2">
+        <h2 class="section-title">Тема 7.2. Метод проектов как ведущая деятельностная технология в дополнительном образовании 🔒</h2>
+        <ul class="activity-list">
+            <!-- Шаг 64: Лекция 2 Дисциплины 7 -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📄</span>
+                <div class="activity-info">
+                    <h4><a href="lecture7_2.pdf" target="_blank" class="task-link">Лекция 2. Метод проектов как деятельностная технология <span>(Доступно после Теста 7.1)</span></a></h4>
+                    <p>Изучите принципы проектного нормирования, классификацию методов обучения и этапы сопровождения детских проектов.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+            <!-- Шаг 65: Тест 2 Дисциплины 7 (Тест №33) -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📝</span>
+                <div class="activity-info">
+                    <h4><a href="#" class="task-link test33-trigger">Тест по Теме 7.2 <span>(Доступно после Лекции 2)</span></a></h4>
+                    <p>Пройтите тест по авторам проектного метода, информационным приемам и стадиям мыследеятельности.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+        </ul>
+    </div>
+    <!-- Тема 7.3 (Добавляется внутрь discipline-7-container сразу под Темой 7.2) -->
+    <div class="section section-locked" id="section-7-3">
+        <h2 class="section-title">Тема 7.3. Проблемное и исследовательское обучение в системе дополнительного образования детей 🔒</h2>
+        <ul class="activity-list">
+            <!-- Шаг 66: Лекция 3 Дисциплины 7 -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📄</span>
+                <div class="activity-info">
+                    <h4><a href="lecture7_3.pdf" target="_blank" class="task-link">Лекция 3. Проблемное и исследовательское обучение <span>(Доступно после Теста 7.2)</span></a></h4>
+                    <p>Изучите структуру проблемных ситуаций, приемы создания когнитивных противоречий и методы поддержки детских гипотез.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+            <!-- Шаг 67: Тест 3 Дисциплины 7 (Тест №34) -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📝</span>
+                <div class="activity-info">
+                    <h4><a href="#" class="task-link test34-trigger">Тест по Теме 7.3 <span>(Доступно после Лекции 3)</span></a></h4>
+                    <p>Пройтите тест по компонентам проблемных ситуаций, методам наблюдения и созданию исследовательских задач.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+        </ul>
+    </div>
+    <!-- Тема 7.4 (Добавляется внутрь discipline-7-container сразу под Темой 7.3) -->
+    <div class="section section-locked" id="section-7-4">
+        <h2 class="section-title">Тема 7.4. Технология детского экспериментирования как метод активизации познавательной деятельности 🔒</h2>
+        <ul class="activity-list">
+            <!-- Шаг 68: Лекция 4 Дисциплины 7 -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📄</span>
+                <div class="activity-info">
+                    <h4><a href="lecture7_4.pdf" target="_blank" class="task-link">Лекция 4. Технология детского экспериментирования <span>(Доступно после Теста 7.3)</span></a></h4>
+                    <p>Изучите отличия опытов от долгосрочных проектов, структуру этапов экспериментирования и правила сопровождения практических действий.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+            <!-- Шаг 69: Тест 4 Дисциплины 7 (Тест №35) -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📝</span>
+                <div class="activity-info">
+                    <h4><a href="#" class="task-link test35-trigger">Тест по Теме 7.4 <span>(Доступно после Лекции 4)</span></a></h4>
+                    <p>Пройтите тест по фазам мотивации, организации опытов, самооцениванию и принципам исследовательской деятельности.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+        </ul>
+    </div>
+    <!-- Тема 7.5 (Добавляется внутрь discipline-7-container сразу под Темой 7.4) -->
+    <div class="section section-locked" id="section-7-5">
+        <h2 class="section-title">Тема 7.5. Теория решения изобретательских задач (ТРИЗ) как высшая форма деятельностного подхода 🔒</h2>
+        <ul class="activity-list">
+            <!-- Шаг 70: Лекция 5 Дисциплины 7 -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📄</span>
+                <div class="activity-info">
+                    <h4><a href="lecture7_5.pdf" target="_blank" class="task-link">Лекция 5. Применение методов ТРИЗ в дополнительном образовании <span>(Доступно после Теста 7.4)</span></a></h4>
+                    <p>Изучите системный оператор, метод фокальных объектов и алгоритмы устранения технических и творческих противоречий.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+            <!-- Шаг 71: Тест 5 Дисциплины 7 (Тест №36) -->
+            <li class="activity-item step-item locked">
+                <span class="icon">📝</span>
+                <div class="activity-info">
+                    <h4><a href="#" class="task-link test36-trigger">Тест по Теме 7.5 <span>(Доступно после Лекции 5)</span></a></h4>
+                    <p>Пройтите итоговый тест по методам Чарльза Вайтинга, Системному оператору Альтшуллера и рефлексии в ТРИЗ.</p>
+                </div>
+                <input type="checkbox" class="progress-checkbox" disabled>
+            </li>
+        </ul>
+    </div>
+</div> <!-- Конец блока discipline-7-container -->
+            </div>
+            <!-- ЭКРАН 2: ЛИЧНЫЙ КАБИНЕТ -->
+            <div id="dashboard-content" class="page-block">
+                <div class="breadcrumbs">Личный кабинет / Главная</div>
+                <h1 class="course-title">Личный кабинет студента</h1>
+                
+                <div class="profile-card">
+                    <div class="profile-avatar">👨‍🏫</div>
+                    <div class="profile-info">
+                        <h2 class="user-fullname">Иванов Иван Иванович</h2>
+                        <p><strong>Должность:</strong> Преподаватель СПТ</p>
+                        <p><strong>Кафедра / Предмет:</strong> Информационные технологии</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Блок прогресса -->
+                    <div class="db-card">
+                        <h3>Общий прогресс курса</h3>
+                        <div class="progress-container">
+                            <div id="course-progress-bar" class="progress-bar" style="width: 0%;">0%</div>
+                        </div>
+                        <p style="margin-top: 10px; font-size: 0.9rem; color: #6c757d;">
+                            Выполнено элементов: <strong id="completed-count">0 из 6</strong>
+                        </p>
+                    </div>
+
+                    <div class="db-card" style="grid-column: span 2; max-height: 500px; overflow-y: auto; padding-right: 10px;">
+    <h3>Журнал оценок по дисциплинам</h3>
+    <table class="grades-table">
+        <thead>
+            <tr>
+                <th>Элемент курса (Тестирование)</th>
+                <th>Оценка</th>
+                <th>Статус</th>
+            </tr>
+                    </thead>
+                    <tbody>
+                        <!-- ДИСЦИПЛИНА 1 -->
+                        <tr style="background-color: #f1f3f5; font-weight: bold;"><td colspan="3">Дисциплина 1. Организационно-правовое обеспечение ДО</td></tr>
+                        <tr><td>Тест 1. Общая характеристика системы ДО</td><td id="grade-test-1">—</td><td id="status-test-1" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 2. Нормативно-правовые документы</td><td id="grade-test-2">—</td><td id="status-test-2" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 3. Содержание ДО и Концепция развития</td><td id="grade-test-3">—</td><td id="status-test-3" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 4. Правовой статус учреждения ДО</td><td id="grade-test-4">—</td><td id="status-test-4" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 5. Финансово-экономические аспекты</td><td id="grade-test-5">—</td><td id="status-test-5" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 6. Обеспечение деятельности педагога ДО</td><td id="grade-test-6">—</td><td id="status-test-6" style="color: #dc3545;">Не сдано</td></tr>
+                    
+                        <!-- ДИСЦИПЛИНА 2 -->
+                        <tr style="background-color: #f1f3f5; font-weight: bold;"><td colspan="3">Дисциплина 2. Организация преподавания по ДОП</td></tr>
+                        <tr><td>Тест 7. Методические основы преподавания</td><td id="grade-test-7">—</td><td id="status-test-7" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 8. Классификация методов и форм обучения</td><td id="grade-test-8">—</td><td id="status-test-8" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 9. Классификация технологий обучения</td><td id="grade-test-9">—</td><td id="status-test-9" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 10. Психолого-педагогическое сопровождение</td><td id="grade-test-10">—</td><td id="status-test-10" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 11. Развитие креативности и методы ТРИЗ</td><td id="grade-test-11">—</td><td id="status-test-11" style="color: #dc3545;">Не сдано</td></tr>
+                    
+                        <!-- ДИСЦИПЛИНА 3 -->
+                        <tr style="background-color: #f1f3f5; font-weight: bold;"><td colspan="3">Дисциплина 3. Методика организации досуговой деятельности</td></tr>
+                        <tr><td>Тест 12. Сущность и принципы КДД</td><td id="grade-test-12">—</td><td id="status-test-12" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 13. Сценарное мастерство в КДД</td><td id="grade-test-13">—</td><td id="status-test-13" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 14. Специфика форм КДД</td><td id="grade-test-14">—</td><td id="status-test-14" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 15. Проведение массовых программ КДД</td><td id="grade-test-15">—</td><td id="status-test-15" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 16. Организация КДД с разными категориями</td><td id="grade-test-16">—</td><td id="status-test-16" style="color: #dc3545;">Не сдано</td></tr>
+                    
+                        <!-- ДИСЦИПЛИНА 4 -->
+                        <tr style="background-color: #f1f3f5; font-weight: bold;"><td colspan="3">Дисциплина 4. Взаимодействие педагога ДО с родителями</td></tr>
+                        <tr><td>Тест 17. Семья как основа воспитания ребенка</td><td id="grade-test-17">—</td><td id="status-test-17" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 18. Педагогические основы взаимодействия</td><td id="grade-test-18">—</td><td id="status-test-18" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 19. Формы и методы работы с семьей</td><td id="grade-test-19">—</td><td id="status-test-19" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 20. Методика родительских собраний и бесед</td><td id="grade-test-20">—</td><td id="status-test-20" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 21. Совместная досуговая деятельность</td><td id="grade-test-21">—</td><td id="status-test-21" style="color: #dc3545;">Не сдано</td></tr>
+                    
+                        <!-- ДИСЦИПЛИНА 5 -->
+                        <tr style="background-color: #f1f3f5; font-weight: bold;"><td colspan="3">Дисциплина 5. Программно-методическое обеспечение ДО</td></tr>
+                        <tr><td>Тест 22. Теоретические основы ПМО</td><td id="grade-test-22">—</td><td id="status-test-22" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 23. Проектирование ИОМ и траекторий</td><td id="grade-test-23">—</td><td id="status-test-23" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 24. Конструирование учебного занятия в ДО</td><td id="grade-test-24">—</td><td id="status-test-24" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 25. Разработка и оформление структурных компонентов</td><td id="grade-test-25">—</td><td id="status-test-25" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 26. Мониторинг и оценка качества ПМО</td><td id="grade-test-26">—</td><td id="status-test-26" style="color: #dc3545;">Не сдано</td></tr>
+                    
+                        <!-- ДИСЦИПЛИНА 6 -->
+                        <tr style="background-color: #f1f3f5; font-weight: bold;"><td colspan="3">Дисциплина 6. Педагогический контроль и оценивание в ДО</td></tr>
+                        <tr><td>Тест 27. Теоретические основы контроля и диагностики</td><td id="grade-test-27">—</td><td id="status-test-27" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 28. Критерии и параметры оценивания результатов</td><td id="grade-test-28">—</td><td id="status-test-28" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 29. Технология портфолио в системе контроля</td><td id="grade-test-29">—</td><td id="status-test-29" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 30. Текущий контроль и промежуточная аттестация</td><td id="grade-test-30">—</td><td id="status-test-30" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 31. Итоговый контроль и оценка результатов</td><td id="grade-test-31">—</td><td id="status-test-31" style="color: #dc3545;">Не сдано</td></tr>
+                    
+                        <!-- ДИСЦИПЛИНА 7 -->
+                        <tr style="background-color: #f1f3f5; font-weight: bold;"><td colspan="3">Дисциплина 7. Педагогические технологии на основе СДП</td></tr>
+                        <tr><td>Тест 32. Теоретические основы деятельностного подхода</td><td id="grade-test-32">—</td><td id="status-test-32" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 33. Метод проектов как ведущая технология</td><td id="grade-test-33">—</td><td id="status-test-33" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 34. Проблемное и исследовательское обучение</td><td id="grade-test-34">—</td><td id="status-test-34" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 35. Технология детского экспериментирования</td><td id="grade-test-35">—</td><td id="status-test-35" style="color: #dc3545;">Не сдано</td></tr>
+                        <tr><td>Тест 36. Применение методов ТРИЗ в ДО</td><td id="grade-test-36">—</td><td id="status-test-36" style="color: #dc3545;">Не сдано</td></tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div> <!-- Конец экрана Личного кабинета -->
+
+            <!-- ЭКРАН 3: ПАНЕЛЬ АДМИНИСТРАТОРА -->
+            <div id="admin-content" class="page-block">
+                <div class="breadcrumbs">Панель управления / Преподаватели</div>
+                <h1 class="course-title">Управление учетными записями преподавателей</h1>
+                
+                <div class="dashboard-grid" style="grid-template-columns: 1fr 2fr;">
+                    <!-- Левая колонка: Форма создания -->
+                    <div class="db-card">
+                        <h3>Создать преподавателя</h3>
+                        <form id="admin-create-form" style="display: flex; flex-direction: column; gap: 12px; margin-top: 10px;">
+                            <input type="text" id="new-fullname" placeholder="ФИО преподавателя" required style="width: 100%; padding: 8px; border: 1px solid #ced4da; border-radius: 4px;">
+                            <input type="text" id="new-subject" placeholder="Предмет / Кафедра" required style="width: 100%; padding: 8px; border: 1px solid #ced4da; border-radius: 4px;">
+                            <input type="text" id="new-username" placeholder="Логин для входа" required style="width: 100%; padding: 8px; border: 1px solid #ced4da; border-radius: 4px;">
+                            <input type="password" id="new-password" placeholder="Пароль" required style="width: 100%; padding: 8px; border: 1px solid #ced4da; border-radius: 4px;">
+                            <button type="submit" class="auth-btn" style="padding: 10px; margin-bottom: 0;">Создать аккаунт</button>
+                        </form>
+                    </div>
+
+                    <!-- Правая колонка: Список существующих -->
+                    <div class="db-card">
+                        <h3>Список преподавателей в системе</h3>
+                        <table class="grades-table" style="margin-top: 10px;">
+                            <thead>
+                                <tr>
+                                    <th>ФИО</th>
+                                    <th>Предмет</th>
+                                    <th>Логин</th>
+                                    <th>Действие</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-users-list">
+                                <!-- Сюда JS будет динамически добавлять строки -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div> <!-- Конец экрана администратора -->
+        </main>
+    </div> <!-- Конец основного контейнера wrapper -->
+    <!-- ЕДИНСТВЕННОЕ МОДАЛЬНОЕ ОКНО ДЛЯ ВСЕХ 6 ТЕСТОВ -->
+<div id="quiz-modal" class="modal">
+    <div class="moodle-quiz-container">
+        <span class="close-modal">&times;</span>
+        <div class="moodle-quiz-header" id="quiz-header">Тест. Попытка №1</div>
+        
+        <form id="quiz-form" class="moodle-quiz-layout">
+            <!-- Левая колонка: Вопросы (генерируются в JS) -->
+            <div class="moodle-questions-col" id="quiz-questions-container"></div>
+
+            <!-- Правая колонка: Навигация Moodle (генерируется в JS) -->
+            <div class="moodle-navigation-col">
+                <div class="moodle-nav-card">
+                    <h4>Навигация по тесту</h4>
+                    <div class="moodle-nav-grid" id="quiz-nav-grid"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+    <!-- Подключаем логику скрипта в самом конце документа -->
+    <script src="script.js"></script>
+</body>
+</html>
